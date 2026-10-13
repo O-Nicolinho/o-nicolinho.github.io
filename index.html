@@ -31,7 +31,7 @@
     <p class="sub">research · essays · cats · quotes · <span class="blink">_</span></p>
   </header>
 
-  <div class="marquee" aria-label="Site announcement"><span>*** WELCOME TO MY SITE!!! はじめまして！ *** 紅葉 *** sign my guestbook? *** currently training ML models... *** Drinking ほうじ茶 *** best viewed in Internet Explorer 6 at 800x600 ***</span></div>
+  <div class="marquee" aria-label="Site announcement"><span>*** Welcome! はじめまして！ *** 紅葉 *** sign my guestbook? *** currently training ML models... *** Drinking ほうじ茶 *** best viewed in Internet Explorer 6 at 800x600 ***</span></div>
 
   <div class="cols">
 
@@ -52,14 +52,6 @@
         </div>
       </div>
 
-      <div class="win counter">
-        <div class="titlebar"><span>Hit counter</span><span class="btns"><i>×</i></span></div>
-        <div class="win-body">
-          You are visitor #
-          <div class="digits" id="hits" aria-label="visitor count"><b>0</b><b>0</b><b>0</b><b>0</b><b>0</b><b>0</b></div>
-          <div class="kiriban">キリ番 <span id="kiri">000100</span> を踏んだら教えてね！</div>
-        </div>
-      </div>
 
       <div class="win status">
         <div class="titlebar"><span>Status</span><span class="btns"><i>×</i></span></div>
@@ -105,7 +97,7 @@
             </article>
             <article>
               <h3><a href="https://alephpsychometrics.org">AlephPsychometrics.org</a></h3>
-              <p>A Big Five personality questionnaire with response-validity checks, which collects data for a text-to-personality model (WIP)</p>
+              <p>A website that hosts a model (that I trained) that predicts your personality (Big 5 score) from text you've written. It also hosts a quiz that provides you with your Big 5 scores, an LLM-written personality summary & animal match based on your scores! Also, I used the website's quiz to collect the data needed to train the model! </p>
             </article>
           </div>
         </div>
@@ -193,23 +185,7 @@
 </div>
 
 <script>
-// ---- hit counter (GoatCounter) ----
-// Needs "Allow adding visitor counts on your website" enabled in GoatCounter's
-// site settings. GoatCounter caches this number for up to 4 hours.
-(function () {
-  fetch('https://nicolinho.goatcounter.com/counter/TOTAL.json')
-    .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
-    .then(function (d) {
-      var n = parseInt(String(d.count).replace(/\D/g, ''), 10) || 0;
-      var s = String(n).padStart(6, '0');
-      var box = document.getElementById('hits');
-      box.innerHTML = s.split('').map(function (c) { return '<b>' + c + '</b>'; }).join('');
-      box.setAttribute('aria-label', s);
-      document.getElementById('kiri').textContent =
-        String(Math.ceil((n + 1) / 100) * 100).padStart(6, '0');
-    })
-    .catch(function () {});   // on failure the boxes stay at 000000
-})();
+
 
 // ---- random quote button ----
 // Quotes for the random slot only. The pinned plaques above are plain HTML
@@ -251,7 +227,6 @@
   btn.addEventListener("click", function () { show(pick()); });
 })();
 </script>
-<script data-goatcounter="https://nicolinho.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
+
 </body>
 </html>
